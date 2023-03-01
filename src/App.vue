@@ -7,7 +7,7 @@
   export default {
     data(){
       return{
-        
+        store
       }
     },
     
@@ -17,9 +17,16 @@
 },
 
     created(){
+      store.isPageLoading = true
       axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=15&offset=0")
       .then((response)=>{
         store.cardsArray = response.data.data
+      })
+      .catch(()=>{
+        store.cardsArray = []
+      })
+      .finally(()=>{
+         store.isPageLoading = false
       })
 
     }

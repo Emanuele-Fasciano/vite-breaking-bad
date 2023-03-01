@@ -16,7 +16,8 @@ export default {
 </script>
 
 <template>
-   <div class="container mt-4">
+   <div class="container mt-4"
+        v-if="store.isPageLoading == false">
        <div class="found-cards py-3 ps-2">
            found cards 39
        </div>
@@ -27,7 +28,12 @@ export default {
                     :type="card.archetype"
                     :img="card.card_images[0].image_url"/>
         </div>
-   </div>
+    </div>
+    <div class="overlay" v-else>
+        <p class="text-center my-5">
+            LOADING
+        </p>
+    </div>
 </template>
 
 <style lang="scss" scoped>
@@ -39,5 +45,14 @@ export default {
         color: white;
         font-weight: bold;
     }
- }
+
+}
+.overlay{
+    position: fixed;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    background-color: rgba(255,255,255,0.5);
+}
 </style>
