@@ -1,5 +1,6 @@
 <script>
-  import CardList from "./components/CardList.vue"
+  import AppHeader from "./components/AppHeader.vue"
+  import MainApp from "./components/MainApp.vue"
   import axios from "axios"
   import { store } from "./data/store"
 
@@ -11,8 +12,9 @@
     },
     
     components: {
-      CardList
-    },
+    MainApp,
+    AppHeader
+},
 
     created(){
       axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=15&offset=0")
@@ -25,7 +27,8 @@
 </script>
 
 <template>
-<CardList/>
+  <AppHeader/>
+  <MainApp/>
 </template>
 
 <style lang="scss"> 

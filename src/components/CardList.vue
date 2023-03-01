@@ -16,7 +16,10 @@ export default {
 </script>
 
 <template>
-   <div class="container">
+   <div class="container mt-4">
+       <div class="found-cards py-3 ps-2">
+           found cards 39
+       </div>
         <div class="row row-cols-3 row-cols-lg-5">
                 <MainCard 
                     v-for="card in store.cardsArray"
@@ -28,7 +31,13 @@ export default {
 </template>
 
 <style lang="scss" scoped>
- @use "../assets/scss/style.scss";
+ .container{
+    background-color: white;
 
-
+    .found-cards{
+        background-color:rgb(19, 18, 18);
+        color: white;
+        font-weight: bold;
+    }
+ }
 </style>
