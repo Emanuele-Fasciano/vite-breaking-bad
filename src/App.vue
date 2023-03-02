@@ -7,7 +7,7 @@
   export default {
     data(){
       return{
-        store
+    
       }
     },
     
@@ -29,13 +29,19 @@
          store.isPageLoading = false
       })
 
+    },
+
+    methods: {
+      filteredSearch(term){
+        console.log(term);
+      }
     }
   }
 </script>
 
 <template>
   <AppHeader/>
-  <MainApp/>
+  <MainApp @search="filteredSearch"/>
 </template>
 
 <style lang="scss"> 

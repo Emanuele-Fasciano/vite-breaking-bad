@@ -19,13 +19,13 @@ export default {
    <div class="container mt-4"
         v-if="store.isPageLoading == false">
        <div class="found-cards py-3 ps-2">
-           found cards 39
+         Cards found: {{ store.cardsArray.length }}
        </div>
         <div class="row row-cols-3 row-cols-lg-5">
                 <MainCard 
                     v-for="card in store.cardsArray"
                     :name="card.name"
-                    :type="card.archetype"
+                    :type="card.type"
                     :img="card.card_images[0].image_url"/>
         </div>
     </div>
