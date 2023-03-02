@@ -34,7 +34,9 @@ export default {
                 "XYZ Pendulum Effect Monster",
                 "Skill Card",
                 "Token"
-            ]
+            ],
+
+            selectedOption: ""
         }
     },
 
@@ -50,11 +52,12 @@ export default {
 
 <template>
     <main>
-        <select class="form-select" aria-label="Default select example">
-            <option :value=" type "
-                     @click="$emit('search', type )"
-                    v-for=" type, in types"
-                    > {{ type }} 
+        <select class="form-select" aria-label="Default select example"
+                @change="$emit('search', selectedOption)"
+                v-model="selectedOption">
+            <option :value=" type "                    
+                    v-for=" type in types" :key="type"> 
+                    {{ type }} 
             </option>
         </select>
         <CardList/>

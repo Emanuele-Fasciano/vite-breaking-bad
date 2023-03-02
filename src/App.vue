@@ -33,7 +33,17 @@
 
     methods: {
       filteredSearch(term){
-        console.log(term);
+      store.isPageLoading = true
+      axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?type=${term}`)
+        .then((response) => {
+          store.cardsArray = response.data.data
+        })
+        .catch(() => {
+          store.cardsArray = []
+        })
+        .finally(() => {
+          store.isPageLoading = false
+        })       
       }
     }
   }
