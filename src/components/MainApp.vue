@@ -52,13 +52,11 @@ export default {
     <main>
         <select class="form-select" aria-label="Default select example">
             <option :value=" type "
+                     @click="$emit('search', type )"
                     v-for=" type, in types"
                     > {{ type }} 
             </option>
-            </select>
-            <button @click="$emit('search', value)">
-                aa
-            </button>
+        </select>
         <CardList/>
     </main>
 </template>
